@@ -1,0 +1,26 @@
+# Install the TextBlob library (run in a Jupyter Notebook or a Python environment with access to pip)
+!pip install textblob
+
+# Import the TextBlob library for text processing and sentiment analysis
+from textblob import TextBlob
+
+# Prompt the user to input text for sentiment analysis
+text = input("Enter the text for Sentiment Analysis:") 
+
+# Create a TextBlob object using the input text
+blob = TextBlob(text)
+
+# Perform sentiment analysis on the text
+sentiment = blob.sentiment  # This returns a namedtuple with 'polarity' and 'subjectivity'
+
+# Classify sentiment based on the polarity score:
+# - Positive sentiment if polarity > 0
+# - Negative sentiment if polarity < 0
+# - Neutral sentiment if polarity == 0
+print(f"sentiment: {'Positive' if sentiment.polarity > 0 else 'Negative' if sentiment.polarity < 0 else 'Neutral'}")
+
+# Display the polarity score:
+# - A score closer to 1 means more positive sentiment
+# - A score closer to -1 means more negative sentiment
+# - A score of 0 means neutral sentiment
+print(f"Polarity: {sentiment.polarity}")
